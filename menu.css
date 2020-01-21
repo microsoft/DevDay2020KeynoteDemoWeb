@@ -1,0 +1,34 @@
+.menu {
+    background-color: black;
+    color: white;
+    display: flex;
+    padding: 8px 16px 8px 16px;
+}
+
+    .menu .left {
+        align-self: flex-start;
+        padding-top: 5px;
+    }
+        
+        .menu .left .fa-search {
+            margin-left: 25px;
+        }
+
+    .menu .center {
+        align-self: center;
+        flex-grow: 1;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    .menu .right {
+        align-self: flex-end;
+    }
+
+    .login-btn {
+        padding: 5px 30px 5px 30px;
+        margin-top: -20px;
+        font-size: 0.8em;
+    }

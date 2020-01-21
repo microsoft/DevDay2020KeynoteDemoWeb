@@ -1,118 +1,134 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Basic Demo</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" async crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="/styles.css" rel="stylesheet">
+    <link href="/menu.css" rel="stylesheet">
 
-      body, html {
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-      }
-
-      .wrapper {
-        display: flex;
-        height: 100%;
-        width: 100%;
-      }
-
-      .col1 {
-        flex: 0 0 200px;
-        background-color: lightgray;
-        transition: background-color .2s linear;
-      }
-
-      .col2 {
-        flex: 1;
-        background-color: papayawhip;
-        transition: background-color .2s linear;
-      }
-
-      .col1:before {
-        content: "not spanning";
-      }
-      .col2:before {
-        content: "not spanning";
-      }
-
-      @media (spanning: single-fold-vertical) {
-        .col1 {
-          flex: 0 0 env(fold-left);
-          margin-right: env(fold-width);
-          background-color: steelblue;
-        }
-
-        .col2 {
-          background-color: yellow;
-        }
-
-        .col1:before {
-          content: "spanning single-fold-vertical";
-        }
-        .col2:before {
-          content: "spanning single-fold-vertical";
-        }
-      }
-
-      @media (spanning: single-fold-horizontal) {
-        .wrapper {
-          flex-direction: column;
-        }
-
-        .col1 {
-          flex: 0 0 env(fold-top);
-          margin-bottom: env(fold-height);
-          background-color: pink;
-        }
-
-        .col2 {
-          background-color: seagreen;
-        }
-
-        .col1:before {
-          content: "spanning single-fold-horizontal";
-        }
-        .col2:before {
-          content: "spanning single-fold-horizontal";
-        }
-      }
-
-      @media (spanning: none) {
-        .col1:before {
-          content: "spanning:none";
-        }
-        .col2:before {
-          content: "spanning:none";
-        }
-      }
-    </style>
-  </head>
-  <body>
+</head>
+<body>
+    <div class="menu sticky-top">
+        <div class="left">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+        <div class="center">The Daily Prophet</div>
+        <div class="right">
+            <button class="login-btn btn btn-secondary">Log in <i class="fa fa-user"></i></button>
+        </div>
+    </div>
+    
     <div class="wrapper">
-      <div class="col1"></div>
-      <div class="col2"></div>
+        <div class="article">
+            <h1 class="headline display-4 font-weight-bold font-italic">Seattle Mayor Announces Free Kittens for All Residents</h1>
+            <img class="img-fluid mt-3" src="/images/kitten.jpg" />
+            <div class="text-left">
+                <p class="mt-3 text-muted">
+                    Photo caption lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <class="mt-3">
+                    By <a href="#">Lana Marshall</a>
+                </h4>
+                <p class="mt-3">
+                    January 1, 2020
+                </p>
+                <div class="article-text">
+                    
+                </div>
+            </div>
+            <div class="mt-5">
+                <button class="btn btn-block btn-secondary">Show 89 comments <i class="fa fa-commenting-o"></i></button>
+            </div>
+
+            <hr class="mt-5" />
+            <div class="row mb-5">
+                <div class="col-3">
+                    <p class="category">CATEGORY ONE</p>
+                    <p>Link 1</p>
+                    <p>Link 2</p>
+                    <p>Link 3</p>
+                    <p>Link 4</p>
+                    <p>Link 5</p>
+                </div>
+                <div class="col-3">
+                    <p class="category">CATEGORY TWO</p>
+                    <p>Link 1</p>
+                    <p>Link 2</p>
+                    <p>Link 3</p>
+                    <p>Link 4</p>
+                    <p>Link 5</p>
+                </div>
+                <div class="col-3">
+                    <p class="category">CATEGORY THREE</p>
+                    <p>Link 1</p>
+                    <p>Link 2</p>
+                    <p>Link 3</p>
+                    <p>Link 4</p>
+                    <p>Link 5</p>
+                </div>
+                <div class="col-3">
+                    <p class="category">CATEGORY FOUR</p>
+                    <p>Link 1</p>
+                    <p>Link 2</p>
+                    <p>Link 3</p>
+                    <p>Link 4</p>
+                    <p>Link 5</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="spanning-css-polyfill.js"></script>
-
     <script>
-    
-        function updateFake () {
-          const config = window["__foldables_env_vars__"];
-          config.update({
-            spanning: "single-fold-vertical",
-            foldSize: 0
-          });
+
+        function updateFake() {
+            const config = window["__foldables_env_vars__"];
+            config.update({
+                spanning: "none",
+                //spanning: "single-fold-vertical", 
+                foldSize: 30
+            });
         }
         updateFake();
-      </script>
 
-  </body>
+            // Append the article paragraphs
+            var articleParagraphs = [
+                "SEATTLE - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue. Montes nascetur ridiculus mus mauris vitae ultricies. Vivamus at augue eget arcu dictum varius duis at consectetur.",
+                "Pellentesque adipiscing commodo elit at imperdiet dui. Faucibus turpis in eu mi bibendum neque egestas congue quisque. Duis tristique sollicitudin nibh sit amet commodo nulla. Pulvinar pellentesque habitant morbi tristique senectus et netus. Interdum velit euismod in pellentesque massa. Tortor at risus viverra adipiscing at in tellus.",
+                "Ac turpis egestas sed tempus urna et pharetra pharetra massa. Sit amet commodo nulla facilisi nullam vehicula ipsum. Auctor neque vitae tempus quam pellentesque nec.",
+                "Suscipit tellus mauris a diam maecenas sed enim ut. Felis eget velit aliquet sagittis id consectetur. Quis imperdiet massa tincidunt nunc pulvinar.",
+                "Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Feugiat sed lectus vestibulum mattis. Nulla at volutpat diam ut venenatis tellus in metus vulputate. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet.",
+                "Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Facilisis volutpat est velit egestas dui id. Massa ultricies mi quis hendrerit dolor magna eget est. Dignissim diam quis enim lobortis scelerisque. Nunc aliquet bibendum enim facilisis gravida neque.",
+                "Commodo odio aenean sed adipiscing. Sed ullamcorper morbi tincidunt ornare. In cursus turpis massa tincidunt dui ut ornare lectus sit. Risus at ultrices mi tempus.",
+                "Viverra vitae congue eu consequat ac felis donec et. Fames ac turpis egestas integer eget aliquet. Curabitur vitae nunc sed velit dignissim sodales ut eu. Enim blandit volutpat maecenas volutpat blandit aliquam. Tempor nec feugiat nisl pretium fusce id velit ut. Turpis nunc eget lorem dolor sed viverra.",
+                "Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Sem fringilla ut morbi tincidunt. Scelerisque mauris pellentesque pulvinar pellentesque habitant. Vestibulum mattis ullamcorper velit sed. Fames ac turpis egestas integer eget aliquet nibh praesent.",
+                "Ultricies integer quis auctor elit. Vulputate enim nulla aliquet porttitor lacus luctus. Ac ut consequat semper viverra nam libero justo. Accumsan tortor posuere ac ut consequat semper viverra nam. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Faucibus scelerisque eleifend donec pretium vulputate.",
+                "Quam quisque id diam vel quam elementum pulvinar etiam. Iaculis at erat pellentesque adipiscing commodo elit. Tellus elementum sagittis vitae et leo duis ut diam. Mattis vulputate enim nulla aliquet. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis.",
+                "Id diam vel quam elementum pulvinar. At lectus urna duis convallis convallis tellus id. Sagittis purus sit amet volutpat consequat mauris nunc. In nisl nisi scelerisque eu ultrices. Feugiat in ante metus dictum at tempor commodo ullamcorper. Quam vulputate dignissim suspendisse in est ante in nibh. Eget velit aliquet sagittis id consectetur purus. Et molestie ac feugiat sed. Erat nam at lectus urna duis convallis convallis tellus id. Congue eu consequat ac felis donec et.",
+                "Vel eros donec ac odio tempor orci dapibus ultrices in. Ullamcorper sit amet risus nullam. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Id donec ultrices tincidunt arcu non sodales neque. Duis at tellus at urna.",
+                "Venenatis a condimentum vitae sapien pellentesque. Risus ultricies tristique nulla aliquet enim. Netus et malesuada fames ac. Diam sollicitudin tempor id eu nisl nunc mi ipsum. Orci porta non pulvinar neque. In nisl nisi scelerisque eu ultrices. Mauris sit amet massa vitae tortor condimentum lacinia quis vel. Risus commodo viverra maecenas accumsan.",
+                "Tortor id aliquet lectus proin nibh nisl. Quisque id diam vel quam elementum pulvinar etiam. Nisl tincidunt eget nullam non nisi est. Proin nibh nisl condimentum id venenatis a condimentum. Quam nulla porttitor massa id neque aliquam vestibulum morbi blandit.",
+                "Nec feugiat nisl pretium fusce id. Arcu non odio euismod lacinia at quis risus sed vulputate. Ut porttitor leo a diam. Magnis dis parturient montes nascetur. Dignissim sodales ut eu sem integer vitae justo.",
+                "Suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus. Senectus et netus et malesuada fames. A erat nam at lectus urna duis convallis convallis tellus. Augue neque gravida in fermentum et sollicitudin ac orci phasellus. Adipiscing elit duis tristique sollicitudin nibh sit amet. Est ullamcorper eget nulla facilisi etiam dignissim diam quis enim. Tincidunt praesent semper feugiat nibh sed. Sed tempus urna et pharetra pharetra massa.",
+                "Morbi tempus iaculis urna id volutpat lacus laoreet. Ullamcorper malesuada proin libero nunc consequat interdum varius sit amet. Sit amet purus gravida quis blandit. Scelerisque in dictum non consectetur a. Cras adipiscing enim eu turpis egestas pretium. Neque ornare aenean euismod elementum nisi. Volutpat diam ut venenatis tellus in. Gravida dictum fusce ut placerat orci nulla pellentesque. At tempor commodo ullamcorper a lacus vestibulum sed. Placerat vestibulum lectus mauris ultrices eros in."
+            ];
+
+            const config = window["__foldables_env_vars__"];
+            if (config.spanning === "none") {
+                const articleContents = document.querySelector(".article-text");
+                articleParagraphs.forEach(p => {
+                    const pEl = document.createElement("p");
+                    pEl.textContent = p;
+                    articleContents.appendChild(pEl);
+                });
+            }
+
+    </script>
+
+</body>
 </html>

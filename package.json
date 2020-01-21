@@ -1,0 +1,22 @@
+{
+  "name": "devday2020keynotedemoweb",
+  "version": "1.0.0",
+  "description": "---\r page_type: sample\r languages:\r - csharp\r products:\r - dotnet\r description: \"Add 150 character max description\"\r urlFragment: \"update-this-to-unique-url-stub\"\r ---",
+  "main": "spanning-css-polyfill.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/DevDay2020KeynoteDemoWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/microsoft/DevDay2020KeynoteDemoWeb/issues"
+  },
+  "homepage": "https://github.com/microsoft/DevDay2020KeynoteDemoWeb#readme",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  }
+}

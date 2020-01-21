@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0; 
+    height: 100%;
+}
+
+.wrapper {
+    height: auto;
+    padding: 60px;
+}
+
+.article {
+    background-color: white;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headline, .article-text {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.article-text {
+    font-size: 1.3em;
+}
+
+.category {
+    font-weight: bold;
+    font-size: .9em;
+}
+
+@media (spanning: single-fold-vertical) {
+    .wrapper {
+        height: calc(100% - 52px);
+    }
+}
