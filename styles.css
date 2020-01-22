@@ -70,6 +70,7 @@ body {
         padding: 60px 0; /*No padding on the left or right so that the article controls the full area. */
         overflow-x: scroll; 
         scroll-behavior: smooth;
+        overflow-x: hidden;
     }
 
     .article {
@@ -84,8 +85,6 @@ body {
     .article > * {
         max-width: env(fold-left);
         padding: 0 60px;
-        /* margin-left: 8px; */
-        /* margin-left: calc(env(fold-width) / 2); */
         margin-right: env(fold-width);
     }
 
