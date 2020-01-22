@@ -8,7 +8,7 @@ html {
 
 body {
     margin: 0;
-    padding: 0; 
+    padding: 0;
     height: 100%;
 }
 
@@ -24,6 +24,22 @@ body {
     margin-right: auto;
 }
 
+.paging-btn {
+    visibility: hidden;
+    color: gray;
+    position: absolute;
+    top: 50%;
+    opacity: .7;
+}
+
+.paging-btn-right {
+    right: 54px;
+}
+
+.paging-btn-left {
+    left: 20px;
+}
+
 .headline, .article-text {
     font-family: 'Times New Roman', Times, serif;
 }
@@ -37,8 +53,51 @@ body {
     font-size: .9em;
 }
 
+.fold-tester {
+    position: absolute;
+    height: 0;
+    width: 0;
+    background-color: magenta;
+    opacity: .2;
+    z-index: 9999;
+}
+
 @media (spanning: single-fold-vertical) {
+
     .wrapper {
+        /* The height should reach down to the bottom of the viewport. */
         height: calc(100% - 52px);
+        padding: 60px 0; /*No padding on the left or right so that the article controls the full area. */
+        overflow-x: scroll; 
+        scroll-behavior: smooth;
+    }
+
+    .article {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 0;
+        max-width: unset;
+        height: 100%;
+    }
+
+    .article > * {
+        max-width: env(fold-left);
+        padding: 0 60px;
+        /* margin-left: 8px; */
+        /* margin-left: calc(env(fold-width) / 2); */
+        margin-right: env(fold-width);
+    }
+
+    .fold-tester {
+        display: block;
+        width: env(fold-width);
+        height: env(fold-height);
+        top: env(fold-top);
+        left: env(fold-left);
+    }
+
+    .paging-btn-right {
+        visibility: visible;
     }
 }
