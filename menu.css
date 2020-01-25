@@ -32,3 +32,11 @@
         margin-top: -20px;
         font-size: 0.8em;
     }
+
+@media (spanning: single-fold-vertical) {
+    .menu .center {
+        align-self: flex-start;
+        padding-left: 60px;
+        text-align: left;
+    }
+}

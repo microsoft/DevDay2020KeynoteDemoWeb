@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" async crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="/styles.css" rel="stylesheet">
-    <link href="/menu.css" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <link href="./menu.css" rel="stylesheet">
 
 </head>
 <body>
@@ -29,7 +29,7 @@
             <h1 class="headline display-5 font-weight-bold font-italic">Seattle Mayor Announces Free Kittens for All Residents</h1>
             
             <div>
-                <img class="img-fluid mt-3" src="/images/kitten.jpg" />
+                <img class="img-fluid mt-3" src="./images/kitten.jpg" />
             </div>
             
             <p class="mt-1 text-muted">
@@ -117,7 +117,8 @@
         </button>
     </div>
 
-    <script src="spanning-css-polyfill.js"></script>
+    <script src="./spanning-css-polyfill.js"></script>
+    <script src="./window-segments-polyfill.js"></script>
     <script>
 
         function fakeSetSpanningMode(spanningOrNull) {
@@ -149,12 +150,30 @@
             document.querySelector(".paging-btn-left").style.visibility = pageNumber === 0 ? "hidden" : "visible";
         }
 
+        function printWindowSegments() {
+            const screens = window.getWindowSegments();
+            console.log("Window segments:")
+            console.table(screens);
+        }
+
         // Clicking the menu at the top left toggles spanning.
         document.querySelector(".fa-bars").addEventListener("click", () => fakeSetSpanningMode(null));
 
         // Clicking the paging buttons scroll to the desired page.
         document.querySelector(".paging-btn-left").addEventListener("click", () => scrollToPage(currentPage - 1));
         document.querySelector(".paging-btn-right").addEventListener("click", () => scrollToPage(currentPage + 1));
+
+        // See how many screens we have. If we have 2, go into spanning mode.
+        const screens = window["getWindowSegments"]();
+        if (screens.length > 1) {
+            fakeSetSpanningMode("single-fold-vertical");
+        }
+
+        window.addEventListener("resize", () => {
+            console.log("resized");
+            printWindowSegments();
+        });
+        printWindowSegments();
 
         // Set us to single-fold-vertical by default.
         // fakeSetSpanningMode("single-fold-vertical");
