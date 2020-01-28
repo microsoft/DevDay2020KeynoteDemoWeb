@@ -27,10 +27,9 @@
         align-self: flex-end;
     }
 
-    .login-btn {
-        padding: 5px 30px 5px 30px;
-        margin-top: -20px;
-        font-size: 0.8em;
+    mgt-login {
+        --background-color: rgb(143, 143, 143);
+        --padding: 6px 20px;
     }
 
 @media (spanning: single-fold-vertical) {

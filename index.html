@@ -20,7 +20,7 @@
         </div>
         <div class="center">The Daily Prophet</div>
         <div class="right">
-            <button class="login-btn btn btn-secondary">Log in <i class="fa fa-user"></i></button>
+            <mgt-login class="login-btn"></mgt-login>
         </div>
     </div>
     
@@ -117,6 +117,11 @@
         </button>
     </div>
 
+    <!-- For login button, use Graph Toolkit -->
+    <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
+    <mgt-msal-provider client-id="1a61b651-7860-4bf8-94d0-d49bf45dcf67"></mgt-msal-provider>
+
+    <!-- Polyfills for dual screen capabilities -->
     <script src="./spanning-css-polyfill.js"></script>
     <script src="./window-segments-polyfill.js"></script>
     <script>
@@ -174,9 +179,6 @@
             printWindowSegments();
         });
         printWindowSegments();
-
-        // Set us to single-fold-vertical by default.
-        // fakeSetSpanningMode("single-fold-vertical");
 
     </script>
 
