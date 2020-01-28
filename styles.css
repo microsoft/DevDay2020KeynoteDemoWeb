@@ -89,7 +89,7 @@ body {
     }
 
     .fold-tester {
-        display: block;
+        display: none; /* For testing, we can use display: block; to simulate the fold. */
         width: env(fold-width);
         height: env(fold-height);
         top: env(fold-top);
