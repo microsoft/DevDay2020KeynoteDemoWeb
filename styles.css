@@ -44,6 +44,10 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.photo-caption {
+    font-size: 0.9em;
+}
+
 .article-text {
     font-size: 1.2em;
 }
@@ -71,6 +75,10 @@ body {
         overflow-x: scroll; 
         scroll-behavior: smooth;
         overflow-x: hidden;
+    }
+
+    .headline {
+        font-size: 2em;
     }
 
     .article {
