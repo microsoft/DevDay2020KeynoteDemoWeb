@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Basic Demo</title>
+    <title>Neo/Duo Web Demo</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="./styles.css" rel="stylesheet">
     <link href="./menu.css" rel="stylesheet">
+    <link rel='manifest' href='/manifest.json'>
 
 </head>
 <body>
@@ -127,6 +128,21 @@
     <script src="./spanning-css-polyfill.js"></script>
     <script src="./window-segments-polyfill.js"></script>
     <script>
+
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            } else {
+                // Register the service worker
+                navigator.serviceWorker.register("pwabuilder-sw.js", {
+                    scope: "./"
+                })
+                .then(function (reg) {
+                    console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                });
+            }
+        }
 
         function fakeSetSpanningMode(spanningOrNull) {
             const config = window["__foldables_env_vars__"];
