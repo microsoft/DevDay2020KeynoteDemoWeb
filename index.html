@@ -193,10 +193,10 @@
         document.querySelector(".paging-btn-right").addEventListener("click", () => scrollToPage(currentPage + 1));
 
         // See how many screens we have. If we have 2, go into spanning mode.
-        const screens = window["getWindowSegments"]();
-        if (screens.length > 1) {
-            fakeSetSpanningMode("single-fold-vertical");
-        }
+        // const screens = window["getWindowSegments"]();
+        // if (screens.length > 1) {
+        //     fakeSetSpanningMode("single-fold-vertical");
+        // }
 
         window.addEventListener("resize", () => {
             console.log("resized");
